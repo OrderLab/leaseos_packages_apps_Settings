@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory  android:title="@string/lease_pref_header_general">
+        <CheckBoxPreference
+            android:key="lease_mode"
+            android:title="@string/lease_pref_title_lease_mode"
+            android:summary="@string/lease_pref_description_lease_mode"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

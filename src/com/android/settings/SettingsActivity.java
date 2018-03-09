@@ -96,6 +96,7 @@ import com.android.settings.inputmethod.KeyboardLayoutPickerFragment2;
 import com.android.settings.inputmethod.PhysicalKeyboardFragment;
 import com.android.settings.inputmethod.SpellCheckersSettings;
 import com.android.settings.inputmethod.UserDictionaryList;
+import com.android.settings.lease.LeaseSettings;
 import com.android.settings.localepicker.LocaleListEditor;
 import com.android.settings.location.LocationSettings;
 import com.android.settings.nfc.AndroidBeam;
@@ -290,6 +291,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             SecuritySettings.class.getName(),
             UsageAccessDetails.class.getName(),
             PrivacySettings.class.getName(),
+            LeaseSettings.class.getName(),
             DeviceAdminSettings.class.getName(),
             AccessibilitySettings.class.getName(),
             AccessibilitySettingsForSetupWizard.class.getName(),

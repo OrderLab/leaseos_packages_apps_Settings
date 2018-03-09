@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Strings related to Settings -->
+
+    <string name="lease_settings">LeaseOS</string>
+    <string name="lease_settings_title">LeaseOS</string>
+
+    <!-- General settings -->
+    <string name="lease_pref_header_general">General</string>
+
+    <string name="lease_pref_title_lease_mode">Enable leaseOS service</string>
+    <string name="lease_pref_description_lease_mode">LeaseOS service guards your phone
+        from immature apps
+    </string>
+</resources>
