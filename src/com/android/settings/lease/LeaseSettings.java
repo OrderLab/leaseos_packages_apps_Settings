@@ -40,7 +40,7 @@ package com.android.settings.lease;
  */
 public class LeaseSettings extends SettingsPreferenceFragment implements
          Preference.OnPreferenceChangeListener{
-    private static final String TAG = "LeaseSettings";
+    private static final String TAG = "nnnn";
 
     private CheckBoxPreference mLeaseEnabledPref;
 
@@ -63,10 +63,11 @@ public class LeaseSettings extends SettingsPreferenceFragment implements
 
      @Override
      protected int getMetricsCategory() {
-         return 0;
+         return 1;
      }
 
      public void registerChangeListener() {
+         Log.d(TAG, "start to register the listener");
          mLeaseEnabledPref.setOnPreferenceChangeListener(this);
      }
 
@@ -83,6 +84,7 @@ public class LeaseSettings extends SettingsPreferenceFragment implements
 
      private void syncWithSecureSettings() {
          final ContentResolver resolver = getContentResolver();
+         Log.d(TAG, "Sync the secure setting");
          android.lease.LeaseSettings settings = LeaseSettingsUtils.readLeaseSettingsLocked(resolver);
          mLeaseEnabledPref.setChecked(settings.serviceEnabled);
      }
