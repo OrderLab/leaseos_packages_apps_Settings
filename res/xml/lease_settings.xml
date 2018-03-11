@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory  android:title="@string/lease_pref_header_general">
+    <PreferenceCategory android:title="@string/lease_pref_header_general">
         <CheckBoxPreference
             android:key="lease_mode"
             android:title="@string/lease_pref_title_lease_mode"
             android:summary="@string/lease_pref_description_lease_mode"
-            android:defaultValue="true" />
+            android:defaultValue="true"/>
+        <Preference
+            android:fragment="com.android.settings.lease.LeaseWhiteList"
+            android:key="whitelist"
+            android:summary="@string/leaseos_whitelist_summary"
+            android:title="@string/leaseos_whitelist_title"/>
+        <ListPreference
+            android:key="rate_limit_window"
+            android:title="@string/lease_pref_title_rate_limit_window"
+            android:entries="@array/lease_pref_rate_limit_window_titles"
+            android:entryValues="@array/lease_pref_rate_limit_window_values"
+            android:defaultValue="3"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null" />
+        <ListPreference
+            android:key="gc_window"
+            android:title="@string/lease_pref_title_gc_window"
+            android:entries="@array/lease_pref_gc_window_titles"
+            android:entryValues="@array/lease_pref_gc_window_values"
+            android:defaultValue="10"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/lease_pref_header_checker">
+        <PreferenceScreen android:key="enable_disable_leases"
+                          android:title="@string/enable_disable_leases_title"
+                          android:summary="@string/enable_disable_leases_summary"
+                          android:persistent="false">
+            <CheckBoxPreference
+                android:key="enable_wakelock_lease"
+                android:title="@string/lease_pref_title_enable_wakelock_leases"
+                android:defaultValue="true"/>
+            <CheckBoxPreference
+                android:key="enable_gps_lease"
+                android:title="@string/lease_pref_title_enable_gps_leases"
+                android:defaultValue="true"/>
+            <CheckBoxPreference
+                android:key="enable_sensor_lease"
+                android:title="@string/lease_pref_title_enable_sensor_leases"
+                android:defaultValue="true"/>
+        </PreferenceScreen>
     </PreferenceCategory>
 </PreferenceScreen>
