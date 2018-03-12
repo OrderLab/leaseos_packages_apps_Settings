@@ -61,5 +61,10 @@
     <string name="lease_pref_title_enable_gps_leases">GPS lease</string>
     <string name="lease_pref_title_enable_sensor_leases">Sensor lease</string>
 
+    <!-- Parameters settings -->
+    <string name="lease_pref_header_parameter">Parameters</string>
+    <string name="lease_parameters_title">Lease parameters</string>
+    <string name="lease_parameters_summary">Advanced settings, developer use only</string>
+
 
 </resources>

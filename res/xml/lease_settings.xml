@@ -29,10 +29,6 @@
             android:positiveButtonText="@null" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/lease_pref_header_checker">
-        <PreferenceScreen android:key="enable_disable_leases"
-                          android:title="@string/enable_disable_leases_title"
-                          android:summary="@string/enable_disable_leases_summary"
-                          android:persistent="false">
             <CheckBoxPreference
                 android:key="enable_wakelock_lease"
                 android:title="@string/lease_pref_title_enable_wakelock_leases"
@@ -45,6 +41,5 @@
                 android:key="enable_sensor_lease"
                 android:title="@string/lease_pref_title_enable_sensor_leases"
                 android:defaultValue="true"/>
-        </PreferenceScreen>
     </PreferenceCategory>
 </PreferenceScreen>

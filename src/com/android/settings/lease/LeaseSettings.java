@@ -151,21 +151,22 @@
              LeaseSettingsUtils.writeGCWindow(window, getContentResolver());
              return true;
          } else if (preference == mWakelockLeaseEnabledPref) {
-             Log.d(TAG, "Wakelock guardian enabled changed to " + newValue);
+             Log.d(TAG, "Wakelock lease enabled changed to " + newValue);
              boolean value = (Boolean) newValue;
              LeaseSettingsUtils.writeWakelockLeaseEnabled(value, getContentResolver());
              return true;
          } else if (preference == mGPSLeaseEnabledPref) {
-             Log.d(TAG, "GPS guardian enabled changed to " + newValue);
+             Log.d(TAG, "GPS lease enabled changed to " + newValue);
              boolean value = (Boolean) newValue;
              LeaseSettingsUtils.writeLocationLeaseEnabled(value, getContentResolver());
              return true;
          } else if (preference == mSensorLeaseEnabledPref) {
-             Log.d(TAG, "Sensor guardian enabled changed to " + newValue);
+             Log.d(TAG, "Sensor lease enabled changed to " + newValue);
              boolean value = (Boolean) newValue;
              LeaseSettingsUtils.writeSensorLeaseEnabled(value, getContentResolver());
              return true;
          }
+         Log.d(TAG, "Unrecognized preference change");
          return false;
      }
 
