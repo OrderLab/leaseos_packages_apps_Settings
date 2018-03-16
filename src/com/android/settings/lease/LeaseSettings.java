@@ -48,7 +48,7 @@
 
      private CheckBoxPreference mLeaseEnabledPref;
      private SharedPreferences mWhiteListPref;
-     private ListPreference mRateLimitWindowPref;
+     private ListPreference mLeaseTermWindowPref;
      private ListPreference mGCWindowPref;
 
      private CheckBoxPreference mWakelockLeaseEnabledPref;
@@ -65,8 +65,8 @@
          mLeaseEnabledPref = (CheckBoxPreference) findPreference("lease_mode");
          mWhiteListPref = getActivity().getSharedPreferences("whitelist",
                  Activity.MODE_PRIVATE);
-         mRateLimitWindowPref = (ListPreference) findPreference("rate_limit_window");
-         mRateLimitWindowPref.setSummary(mRateLimitWindowPref.getEntry());
+         mLeaseTermWindowPref = (ListPreference) findPreference("rate_limit_window");
+         mLeaseTermWindowPref.setSummary(mLeaseTermWindowPref.getEntry());
          mGCWindowPref = (ListPreference) findPreference("gc_window");
          mGCWindowPref.setSummary(mGCWindowPref.getEntry());
 
@@ -88,7 +88,7 @@
      public void registerChangeListener() {
          Log.d(TAG, "start to register the listener");
          mLeaseEnabledPref.setOnPreferenceChangeListener(this);
-         mRateLimitWindowPref.setOnPreferenceChangeListener(this);
+         mLeaseTermWindowPref.setOnPreferenceChangeListener(this);
          mGCWindowPref.setOnPreferenceChangeListener(this);
 
          mWakelockLeaseEnabledPref.setOnPreferenceChangeListener(this);
@@ -106,8 +106,8 @@
          Set<String> whiteListSet = LeaseSettingsUtils.whitelistToSet(settings.whiteList);
          mWhiteListPref.edit().putStringSet(LeaseWhiteList.WL_PKGS_KEY,
                  whiteListSet).commit();
-         updateFreqListPref(mRateLimitWindowPref, settings.rateLimitWindow);
-         updateFreqListPref(mGCWindowPref, settings.gcWindow);
+         updateFreqListPref(mLeaseTermWindowPref, settings.LeaseTermWindow);
+         updateFreqListPref(mGCWindowPref, settings.DelayWindow);
 
          mWakelockLeaseEnabledPref.setChecked(settings.wakelockLeaseEnabled);
          mGPSLeaseEnabledPref.setChecked(settings.gpsLeaseEnabled);
@@ -134,10 +134,10 @@
              boolean value = (Boolean) newValue;
              LeaseSettingsUtils.writeServiceEnabled(value, getContentResolver());
              return true;
-         } else if (preference == mRateLimitWindowPref) {
+         } else if (preference == mLeaseTermWindowPref) {
              Log.d(TAG, "Rate limit window changed to " + newValue);
              String value = (String) newValue;
-             updatePrefSummary(mRateLimitWindowPref, value);
+             updatePrefSummary(mLeaseTermWindowPref, value);
 
              long window = (long) (Float.parseFloat(value) * MILLIS_PER_MINUTE);
              LeaseSettingsUtils.writeRateLimitWindow(window, getContentResolver());
