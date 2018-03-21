@@ -16,7 +16,7 @@
             android:title="@string/lease_pref_title_rate_limit_window"
             android:entries="@array/lease_pref_rate_limit_window_titles"
             android:entryValues="@array/lease_pref_rate_limit_window_values"
-            android:defaultValue="0.5"
+            android:defaultValue="0.25"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null" />
         <ListPreference
@@ -24,7 +24,7 @@
             android:title="@string/lease_pref_title_gc_window"
             android:entries="@array/lease_pref_gc_window_titles"
             android:entryValues="@array/lease_pref_gc_window_values"
-            android:defaultValue="0.5"
+            android:defaultValue="0.05"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null" />
     </PreferenceCategory>
