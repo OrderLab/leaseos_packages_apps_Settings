@@ -55,6 +55,9 @@
      private CheckBoxPreference mGPSLeaseEnabledPref;
      private CheckBoxPreference mSensorLeaseEnabledPref;
 
+     private CheckBoxPreference mBatteryTraceEnabledPref;
+     private ListPreference mBatteryTraceWindowPref;
+
      private SettingsHandler mHandler;
 
      @Override
@@ -73,6 +76,10 @@
          mWakelockLeaseEnabledPref = (CheckBoxPreference) findPreference("enable_wakelock_lease");
          mGPSLeaseEnabledPref = (CheckBoxPreference) findPreference("enable_gps_lease");
          mSensorLeaseEnabledPref = (CheckBoxPreference) findPreference("enable_sensor_lease");
+
+         mBatteryTraceEnabledPref = (CheckBoxPreference) findPreference("enable_battery_trace");
+         mBatteryTraceWindowPref = (ListPreference) findPreference("battery_trace_window");
+         mLeaseTermWindowPref.setSummary(mLeaseTermWindowPref.getEntry());
 
          mHandler = new SettingsHandler();
          mHandler.sendEmptyMessage(SettingsHandler.MSG_SYNC_WITH_SECURE_SETTING);
@@ -94,6 +101,8 @@
          mWakelockLeaseEnabledPref.setOnPreferenceChangeListener(this);
          mGPSLeaseEnabledPref.setOnPreferenceChangeListener(this);
          mSensorLeaseEnabledPref.setOnPreferenceChangeListener(this);
+
+         mBatteryTraceEnabledPref.setOnPreferenceChangeListener(this);
      }
 
      private void syncWithSecureSettings() {
@@ -112,6 +121,9 @@
          mWakelockLeaseEnabledPref.setChecked(settings.wakelockLeaseEnabled);
          mGPSLeaseEnabledPref.setChecked(settings.gpsLeaseEnabled);
          mSensorLeaseEnabledPref.setChecked(settings.sensorLeaseEnabled);
+
+         mBatteryTraceEnabledPref = (CheckBoxPreference) findPreference("enable_battery_trace");
+         updateFreqListPref(mBatteryTraceWindowPref, settings.batteryTracingInterval);
      }
 
      private void updateFreqListPref(ListPreference preference, long freqInMillis) {
@@ -165,7 +177,21 @@
              boolean value = (Boolean) newValue;
              LeaseSettingsUtils.writeSensorLeaseEnabled(value, getContentResolver());
              return true;
+         } else if (preference == mBatteryTraceEnabledPref) {
+             Log.d(TAG, "Battery tracing enabled changed to " + newValue);
+             boolean value = (Boolean) newValue;
+             LeaseSettingsUtils.writeBatteryTracingEnabled(value, getContentResolver());
+             return true;
+         } else if (preference == mBatteryTraceWindowPref) {
+             Log.d(TAG, "Battery tracing interval changed to " + newValue);
+             String value = (String) newValue;
+             updatePrefSummary(mGCWindowPref, value);
+
+             long window = (long) (Float.parseFloat(value) * MILLIS_PER_MINUTE);
+             LeaseSettingsUtils.writeGCWindow(window, getContentResolver());
+             return true;
          }
+
          Log.d(TAG, "Unrecognized preference change");
          return false;
      }

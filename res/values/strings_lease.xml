@@ -61,18 +61,40 @@
         <item>0</item>
     </string-array>
 
-    <!-- Lease settings -->
+
+
+    <!-- Lease Start Settings -->
     <string name="lease_pref_header_checker">Leases</string>
-    <string name="enable_disable_leases_title">Enabled leases</string>
-    <string name="enable_disable_leases_summary">Turn on/off various leases</string>
     <string name="lease_pref_title_enable_wakelock_leases">Start Wakelock lease</string>
     <string name="lease_pref_title_enable_gps_leases">Start GPS lease</string>
     <string name="lease_pref_title_enable_sensor_leases">Start Sensor lease</string>
+
+
+    <!-- Battery Tracker Settings -->
+    <string name="lease_pref_header_battery">Battery Tracker</string>
+    <string name="lease_pref_title_enable_battery_trace">Start Battery Tracker</string>
+    <string name="lease_pref_description_enable_battery_trace">Start Battery Tracker to trace the battery usage of each app</string>
+    <string name="lease_pref_title_battery_trace_window">Trace interval</string>
+    <string-array name="lease_pref_battery_trace_window_titles">
+        <item>1 minutes</item>
+        <item>2 minutes</item>
+        <item>3 minutes</item>
+        <item>3 minutes</item>
+        <item>5 minutes</item>
+    </string-array>
+    <string-array name="lease_pref_battery_trace_window_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>3</item>
+        <item>5</item>
+    </string-array>
 
     <!-- Parameters settings -->
     <string name="lease_pref_header_parameter">Parameters</string>
     <string name="lease_parameters_title">Lease parameters</string>
     <string name="lease_parameters_summary">Advanced settings, developer use only</string>
+
 
 
 </resources>

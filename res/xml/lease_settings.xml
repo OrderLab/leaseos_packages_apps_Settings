@@ -18,7 +18,7 @@
             android:entryValues="@array/lease_pref_rate_limit_window_values"
             android:defaultValue="0.25"
             android:negativeButtonText="@null"
-            android:positiveButtonText="@null" />
+            android:positiveButtonText="@null"/>
         <ListPreference
             android:key="gc_window"
             android:title="@string/lease_pref_title_gc_window"
@@ -26,20 +26,35 @@
             android:entryValues="@array/lease_pref_gc_window_values"
             android:defaultValue="0.05"
             android:negativeButtonText="@null"
-            android:positiveButtonText="@null" />
+            android:positiveButtonText="@null"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/lease_pref_header_checker">
-            <CheckBoxPreference
-                android:key="enable_wakelock_lease"
-                android:title="@string/lease_pref_title_enable_wakelock_leases"
-                android:defaultValue="true"/>
-            <CheckBoxPreference
-                android:key="enable_gps_lease"
-                android:title="@string/lease_pref_title_enable_gps_leases"
-                android:defaultValue="true"/>
-            <CheckBoxPreference
-                android:key="enable_sensor_lease"
-                android:title="@string/lease_pref_title_enable_sensor_leases"
-                android:defaultValue="true"/>
+        <CheckBoxPreference
+            android:key="enable_wakelock_lease"
+            android:title="@string/lease_pref_title_enable_wakelock_leases"
+            android:defaultValue="true"/>
+        <CheckBoxPreference
+            android:key="enable_gps_lease"
+            android:title="@string/lease_pref_title_enable_gps_leases"
+            android:defaultValue="true"/>
+        <CheckBoxPreference
+            android:key="enable_sensor_lease"
+            android:title="@string/lease_pref_title_enable_sensor_leases"
+            android:defaultValue="true"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/lease_pref_header_battery">
+        <CheckBoxPreference
+            android:key="enable_battery_trace"
+            android:title="@string/lease_pref_title_enable_battery_trace"
+            android:summary="@string/lease_pref_description_enable_battery_trace"
+            android:defaultValue="true"/>
+        <ListPreference
+            android:key="battery_trace_window"
+            android:title="@string/lease_pref_title_battery_trace_window"
+            android:entries="@array/lease_pref_battery_trace_window_titles"
+            android:entryValues="@array/lease_pref_battery_trace_window_values"
+            android:defaultValue="1"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"/>
     </PreferenceCategory>
 </PreferenceScreen>
